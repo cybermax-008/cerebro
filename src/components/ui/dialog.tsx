@@ -1,4 +1,3 @@
-// src/components/ui/dialog.tsx
 "use client"
 
 import * as React from "react"
@@ -9,11 +8,9 @@ import { cn } from "@/lib/utils"
 const Dialog = DialogPrimitive.Root
 const DialogTrigger = DialogPrimitive.Trigger
 
-// Simplified DialogPortal
 const DialogPortal = DialogPrimitive.Portal
 
-// Corrected DialogOverlay
-const DialogOverlay = React.forwardRef
+const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   DialogPrimitive.DialogOverlayProps
 >(({ className, ...props }, ref) => (
@@ -28,8 +25,7 @@ const DialogOverlay = React.forwardRef
 ))
 DialogOverlay.displayName = "DialogOverlay"
 
-// Corrected DialogContent
-const DialogContent = React.forwardRef
+const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogPrimitive.DialogContentProps
 >(({ className, children, ...props }, ref) => (
@@ -67,7 +63,7 @@ const DialogHeader = ({
 )
 DialogHeader.displayName = "DialogHeader"
 
-const DialogTitle = React.forwardRef
+const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   DialogPrimitive.DialogTitleProps
 >(({ className, ...props }, ref) => (

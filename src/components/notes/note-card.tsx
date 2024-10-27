@@ -8,36 +8,14 @@ import { useState } from 'react'
 
 import { NotePreview } from './note-preview'
 
-export function NoteCard({ note }: NoteCardProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false)
-
-  return (
-    <>
-      <div 
-        onClick={() => setIsPreviewOpen(true)}
-        className="group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm 
-                  hover:shadow-md transition-shadow p-6 border border-gray-200 
-                  dark:border-gray-700 cursor-pointer"
-      >
-        {/* Existing card content */}
-      </div>
-
-      <NotePreview 
-        note={note}
-        isOpen={isPreviewOpen}
-        onClose={() => setIsPreviewOpen(false)}
-      />
-    </>
-  )
-}
-
 interface NoteCardProps {
   note: Note
 }
 
 export function NoteCard({ note }: NoteCardProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false)
+
 
   return (
     <div className="group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm 
