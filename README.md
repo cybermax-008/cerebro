@@ -1,8 +1,5 @@
-# Cerebro - Your Second Brain for Learning
-
+# Cerebro
 Cerebro is an AI-powered learning platform that combines spaced repetition, knowledge management, and smart study tools. It's designed to be your second brain, helping you learn more effectively and retain information longer.
-
-![Cerebro Dashboard](public/images/dashboard-preview.png)
 
 ## ✨ Core Features
 
