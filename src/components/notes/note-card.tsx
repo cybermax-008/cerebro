@@ -5,7 +5,7 @@ import { Note } from '@/types'
 import { formatDistanceToNow } from 'date-fns'
 import { MoreVertical, Star } from 'lucide-react'
 import { useState } from 'react'
-
+import { useNotesStore } from '@/store/use-notes-store'
 import { NotePreview } from './note-preview'
 
 interface NoteCardProps {
@@ -14,13 +14,17 @@ interface NoteCardProps {
 
 export function NoteCard({ note }: NoteCardProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isPreviewOpen, setIsPreviewOpen] = useState(false)
+  const { toggleFavorite, setSelectedNote, openPreview } = useNotesStore()
+  const handleCardClick = () => {
+    setSelectedNote(note)
+    openPreview()
+  }
 
 
   return (
     <div className="group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm 
                     hover:shadow-md transition-shadow p-6 border border-gray-200 
-                    dark:border-gray-700">
+                    dark:border-gray-700" onClick={handleCardClick} >
       {/* Top Actions */}
       <div className="absolute right-4 top-4 flex items-center gap-2">
         <button 
@@ -31,7 +35,7 @@ export function NoteCard({ note }: NoteCardProps) {
             }`}
           onClick={(e) => {
             e.stopPropagation()
-            // We'll implement favorite toggle later
+            toggleFavorite(note.id)
           }}
         >
           <Star className="h-5 w-5" />
